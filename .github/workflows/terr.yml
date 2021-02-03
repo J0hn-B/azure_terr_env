@@ -4,6 +4,7 @@ on: [push]
 
 defaults:
   run:
+    shell: bash
     working-directory: azure 
 
 jobs:
