@@ -37,5 +37,5 @@ jobs:
 
       - name: Get the output
         run: |
-          rgname=$(terraform output rg_name -raw)
+          rgname=$(terraform output -raw rg_name)
           echo $rgname
