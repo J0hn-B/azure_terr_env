@@ -1,6 +1,7 @@
 provider "azurerm" {
   features {}
 }
+provider "azuread" {}
 
 #* Backend for remote state. Create Storage first.
 terraform {
