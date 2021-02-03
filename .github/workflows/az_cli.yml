@@ -24,5 +24,4 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            chmod +x cli.sh
-            cli.sh
+            az group list
