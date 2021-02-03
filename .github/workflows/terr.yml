@@ -1,4 +1,4 @@
-name: Azure Terraform
+name: Azure CLI
 
 on: [push]
 
@@ -39,6 +39,6 @@ jobs:
         run: |
           rgname=$(terraform output -raw rg_name)
           echo $rgname
-          
+
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
