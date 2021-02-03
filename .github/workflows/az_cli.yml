@@ -5,7 +5,7 @@ on: [push]
 defaults:
   run:
     shell: bash
-    working-directory: scripts 
+    #working-directory: scripts 
 
 jobs:
   azure_cli:
@@ -24,5 +24,5 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            chmod +x cli.sh
-            /cli.sh
+            chmod +x $GITHUB_WORKSPACE/scripts/cli.sh
+            $GITHUB_WORKSPACE/scripts/cli.sh
