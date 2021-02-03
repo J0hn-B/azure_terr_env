@@ -24,7 +24,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 0.14.5
-          terraform_wrapper: false
+          terraform_wrapper: false # necessary if you want to have output 
 
       - name: Terraform Init
         run: terraform init
@@ -39,3 +39,6 @@ jobs:
         run: |
           rgname=$(terraform output -raw rg_name)
           echo $rgname
+          
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
