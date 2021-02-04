@@ -1,3 +1,4 @@
+# Create the Azure AD roles
 resource "azurerm_role_assignment" "dev_group_role" {
   scope                = data.azurerm_subscription.primary.id
   role_definition_name = "Contributor"
