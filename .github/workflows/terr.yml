@@ -8,7 +8,7 @@ defaults:
     working-directory: azure 
 
 jobs:
-  terraform_validate:
+  terraform_validate_apply_destroy:
     runs-on: ubuntu-latest
 
     env:
