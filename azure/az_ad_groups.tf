@@ -3,7 +3,7 @@
 resource "azuread_group" "developers" {
   display_name = "devs-az-ad-group"
   members = [
-      azuread_user.user_0.object_id
+    azuread_user.user_0.object_id
   ]
 }
 
@@ -21,6 +21,6 @@ data "azurerm_subscription" "primary" {}
 
 resource "azurerm_role_assignment" "dev_group_role" {
   scope                = data.azurerm_subscription.primary.id
-  role_definition_name = "Reader"
+  role_definition_name = "Contributor"
   principal_id         = azuread_group.developers.object_id
 }
