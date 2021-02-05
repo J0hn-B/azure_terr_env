@@ -1,4 +1,3 @@
-
 resource "azurerm_kubernetes_cluster" "aks_01" {
   name                = "aks-01"
   location            = azurerm_resource_group.rg_aks_01.location
