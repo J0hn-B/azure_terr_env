@@ -13,6 +13,7 @@ resource "azurerm_kubernetes_cluster" "aks_01" {
     vm_size             = "Standard_B2s"
     vnet_subnet_id      = azurerm_subnet.azure_cni_01.id
   }
+  node_resource_group = "k8s-resources"
 
   identity {
     type = "SystemAssigned"
