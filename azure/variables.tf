@@ -12,3 +12,7 @@ variable "rg_linux_vm_location" { default = "North Europe" }
 
 # Azure Linux Virtual Machines 
 variable "linux_vm_01_name" { default = "lnx-vm-01" }
+
+# Azure Virtual Network Resources
+variable "rg_vnet_resources_name" { default = "ltd-virtual-networks-resources" }
+variable "rg_vnet_resources_location" { default = "North Europe" }

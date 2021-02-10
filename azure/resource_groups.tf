@@ -16,3 +16,8 @@ resource "azurerm_resource_group" "rg_linux_vm" {
   name     = var.rg_linux_vm_name
   location = var.rg_linux_vm_location
 }
+
+resource "azurerm_resource_group" "rg_vnet_resources" {
+  name     = var.rg_vnet_resources_name
+  location = var.rg_vnet_resources_location
+}

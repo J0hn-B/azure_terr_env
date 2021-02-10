@@ -1,15 +1,15 @@
 resource "azurerm_public_ip" "vm_bastion" {
-  name                = "bastionpip"
-  location            = azurerm_resource_group.rg_linux_vm.location
-  resource_group_name = azurerm_resource_group.rg_linux_vm.name
+  name                = "bastion-pip"
+  location            = azurerm_resource_group.rg_vnet_resources.location
+  resource_group_name = azurerm_resource_group.rg_vnet_resources.name
   allocation_method   = "Static"
   sku                 = "Standard"
 }
 
 resource "azurerm_bastion_host" "web_bastion" {
   name                = "web"
-  location            = azurerm_resource_group.rg_linux_vm.location
-  resource_group_name = azurerm_resource_group.rg_linux_vm.name
+  location            = azurerm_resource_group.rg_vnet_resources.location
+  resource_group_name = azurerm_resource_group.rg_vnet_resources.name
 
   ip_configuration {
     name                 = "bastion"
