@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "vm_nic_01" {
-  name                = "${azurerm_linux_virtual_machine.linux_vm_01.name}-vm-nic-01"
+  name                = "${var.linux_vm_01_name}-vm-nic-01"
   location            = azurerm_resource_group.rg_linux_vm.location
   resource_group_name = azurerm_resource_group.rg_linux_vm.name
 
@@ -36,7 +36,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm_01" {
   }
 
   os_disk {
-    name = "${azurerm_linux_virtual_machine.linux_vm_01.name}-os-disk"
+    name                 = "${azurerm_linux_virtual_machine.linux_vm_01.name}-os-disk"
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
