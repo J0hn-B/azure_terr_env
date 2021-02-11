@@ -13,6 +13,11 @@ variable "rg_linux_vm_location" { default = "North Europe" }
 # Azure Linux Virtual Machines 
 variable "linux_vm_01_name" { default = "linux-vm-01" }
 
+#******** Active servers running ********#
+variable "instance_count" { default = 3 }
+#****************************************#
+
+
 # Azure Virtual Network Resources
 variable "rg_vnet_resources_name" { default = "ltd-virtual-networks-resources" }
 variable "rg_vnet_resources_location" { default = "North Europe" }

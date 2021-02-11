@@ -1,5 +1,6 @@
 resource "azurerm_network_interface" "vm_nic_01" {
-  name                = "${var.linux_vm_01_name}-vm-nic-01"
+  count               = var.instance_count
+  name                = "${var.linux_vm_01_name}-${count.index}-vm-nic"
   location            = azurerm_resource_group.rg_linux_vm.location
   resource_group_name = azurerm_resource_group.rg_linux_vm.name
 
@@ -21,7 +22,8 @@ resource "azurerm_availability_set" "vm_av_set_01" {
 
 
 resource "azurerm_linux_virtual_machine" "linux_vm_01" {
-  name                = var.linux_vm_01_name
+  count               = var.instance_count
+  name                = "${var.linux_vm_01_name}-${count.index}"
   resource_group_name = azurerm_resource_group.rg_linux_vm.name
   location            = azurerm_resource_group.rg_linux_vm.location
   size                = "Standard_B2s"
