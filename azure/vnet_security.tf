@@ -5,8 +5,8 @@ resource "azurerm_subnet_network_security_group_association" "vm_nsg_01" {
 
 resource "azurerm_network_security_group" "vm_nsg_01" {
   name                = "tls_server"
-  location            = azurerm_resource_group.rg_linux_vm.location
-  resource_group_name = azurerm_resource_group.rg_linux_vm.name
+  location            = azurerm_resource_group.rg_vnet_resources.location
+  resource_group_name = azurerm_resource_group.rg_vnet_resources.name
 }
 
 resource "azurerm_network_security_rule" "web_subnet_rule" {
@@ -20,7 +20,7 @@ resource "azurerm_network_security_rule" "web_subnet_rule" {
   source_address_prefix       = element(split(",", var.rules_app[count.index]), 6)
   source_port_range           = element(split(",", var.rules_app[count.index]), 7)
   direction                   = element(split(",", var.rules_app[count.index]), 8)
-  resource_group_name         = azurerm_resource_group.rg_linux_vm.name
+  resource_group_name         = azurerm_resource_group.rg_vnet_resources.name
   network_security_group_name = azurerm_network_security_group.vm_nsg_01.name
 }
 
