@@ -12,7 +12,7 @@ variable "rg_vnet_resources_location" { default = "North Europe" }
 
 #******** Active servers running ***********************************************#
 variable "ssh_instance_count" { default = 3 }
-variable "pass_instance_count" { default = 2 }
+variable "pass_instance_count" { default = 1 }
 #*******************************************************************************#
 
 #? Azure Linux SSH Virtual Machines Resource Group

@@ -22,21 +22,19 @@ resource "azurerm_availability_set" "vm_av_set_02" {
 
 
 resource "azurerm_linux_virtual_machine" "linux_vm_02" {
-  count               = var.pass_instance_count
-  name                = "${var.linux_vm_02_name}-${count.index}"
-  resource_group_name = azurerm_resource_group.rg_linux_vm_02.name
-  location            = azurerm_resource_group.rg_linux_vm_02.location
-  size                = "Standard_B2s"
-  admin_username      = "adminuser"
+  count                           = var.pass_instance_count
+  name                            = "${var.linux_vm_02_name}-${count.index}"
+  resource_group_name             = azurerm_resource_group.rg_linux_vm_02.name
+  location                        = azurerm_resource_group.rg_linux_vm_02.location
+  size                            = "Standard_B2s"
+  admin_username                  = "adminuser"
+  admin_password                  = data.azurerm_key_vault_secret.vm_pass.value
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.vm_nic_02[count.index].id,
   ]
 
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = data.azurerm_key_vault_secret.vm_ssh.value
-  }
-  # VM with SSH key, stored in an Azure Key Vault
+  # VM with password, stored in an Azure Key Vault
   os_disk {
     name                 = "${var.linux_vm_02_name}-${count.index}-osdisk"
     caching              = "ReadWrite"

@@ -20,7 +20,7 @@
 #     user_assigned_identity_id = azurerm_user_assigned_identity.aks_managed_identity.id
 #   }
 
-#   tags = {
-#     Environment = "Development"
+#   tags = var.default_tags
+#     
 #   }
 # }
