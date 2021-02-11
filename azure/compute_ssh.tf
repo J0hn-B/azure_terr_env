@@ -36,7 +36,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm_01" {
     username   = "adminuser"
     public_key = data.azurerm_key_vault_secret.vm_ssh.value
   }
-
+  # VM with SSH key, stored in an Azure Key Vault
   os_disk {
     name                 = "${azurerm_linux_virtual_machine.linux_vm_01.name}-os-disk"
     caching              = "ReadWrite"
@@ -49,4 +49,5 @@ resource "azurerm_linux_virtual_machine" "linux_vm_01" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
+  tags = var.default_tags
 }

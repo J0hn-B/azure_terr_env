@@ -21,3 +21,12 @@ variable "instance_count" { default = 3 }
 # Azure Virtual Network Resources
 variable "rg_vnet_resources_name" { default = "ltd-virtual-networks-resources" }
 variable "rg_vnet_resources_location" { default = "North Europe" }
+
+# Tags
+variable "default_tags" {
+  type = map(string)
+  default = {
+    Environment : "Development"
+    Project : "Main_Website"
+  }
+}
