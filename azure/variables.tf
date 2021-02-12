@@ -11,7 +11,7 @@ variable "rg_vnet_resources_name" { default = "ltd-virtual-networks-resources" }
 variable "rg_vnet_resources_location" { default = "North Europe" }
 
 #******** Active servers running ***********************************************#
-variable "ssh_instance_count" { default = 3 }
+variable "ssh_instance_count" { default = 2 }
 variable "pass_instance_count" { default = 1 }
 #*******************************************************************************#
 
